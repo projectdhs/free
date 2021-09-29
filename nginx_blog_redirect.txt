@@ -1,0 +1,11 @@
+server {
+    autoindex_localtime on;
+    listen 80;
+	server_name www.example.com example.com; #example.com은 개인 도메인
+
+    if ($request_uri != "/ads.txt") {  #예외 주소
+        return 301 https://blog.naver.com/example/$request_uri; #example을 네이버 블로그로 사용중인 아이디
+        } 
+    server_name localhost;
+    root /var/www/html;
+}
